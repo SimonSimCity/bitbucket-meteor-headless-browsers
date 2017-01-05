@@ -35,3 +35,16 @@ This is how the `bitbucket-pipeline.yml` could look for you:
               # Kill the services needed for acceptance-tests
               - kill $xvfb
               - kill $meteor
+
+And here your `package.json`:
+
+    {
+      [...]
+      "scripts": {
+        "test-chimp-chrome": "chimp --ddp=http://localhost:3000 --path=tests --browser=chrome --watch",
+        "test-chimp-firefox": "chimp --ddp=http://localhost:3000 --path=tests --browser=firefox --watch",
+        "test-chimp-chrome-once": "chimp --ddp=http://localhost:3000 --path=tests --browser=chrome",
+        "test-chimp-firefox-once": "chimp --ddp=http://localhost:3000 --path=tests --browser=firefox",
+        "test-start": "meteor"
+      }
+    }
